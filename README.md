@@ -1,8 +1,32 @@
-# React + Vite
+# Ferdy Firmansyah - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio project! This repository showcases my work and skills as a developer. The project is a React-based web portfolio designed to highlight my experiences, skills, and projects, providing an engaging and responsive user experience.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+Check out the live version of my portfolio: [https://myportfolio.com](https://myportfolio.com) *(Replace with your actual live link)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📁 Project Structure
+
+```plaintext
+.
+├── public
+│   ├── icon.png                 
+│   └── ...
+├── src
+│   ├── mvtop
+│   │   ├── navigation.jsx
+│   ├── components
+│   │   ├── Header.jsx      
+│   │   ├── AboutMe.jsx      
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Expaw.jsx
+│   │   ├── Education.jsx
+│   │   ├── Hero.jsx             
+│   ├── styles
+│   │   └── global.css            
+│   ├── App.jsx   
+│   ├── index.css                
+│   └── main.jsx                 
+└── README.md
