@@ -1,4 +1,4 @@
-import { UAJY, Mattcom, SMKHasanah } from "./Icons";
+import { UAJY, Mattcom, SMKHasanah } from "./icons";
 
 // siatma
 import scafSiatma from "../assets/images/projects/siatma/1.jpg";
