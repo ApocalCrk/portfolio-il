@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-import Ferday from "../../assets/images/ferdy.png";
+import Ferday from "../../assets/images/Ferdy.png";
 import CV from "../../assets/pdf/cv.pdf";
 
 import Modal from "../../utils/ModalPDF";
