@@ -110,7 +110,7 @@ const Projects = () => {
 
 const ProjectItem = ({ project, isModal }) => (
   <div>
-    <div className="flex justify-between items-start group cursor-pointer">
+    <div className="flex justify-between items-start group cursor-pointer" onClick={() => window.open(project.link, "_blank")}>
       <div className="space-y-4">
         <h3 className="text-xl font-medium group-hover:text-gray-600 transition-colors">
           {project.title}

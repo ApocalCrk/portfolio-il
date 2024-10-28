@@ -1,4 +1,5 @@
 import { UAJY, Mattcom, SMKHasanah } from "./icons";
+
 import { FaCode, FaServer, FaPalette, FaTools } from "react-icons/fa";
 
 // siatma
@@ -86,6 +87,7 @@ export const projects = [
   {
     title: "SIATMA UAJY Mobile App",
     platform: "Mobile",
+    link: "https://github.com/apocalcrk/siatma-release",
     description:
       "SIATMA UAJY is an application used to facilitate students in viewing lecture schedules, grades, and other information. This application can also be used to take attendance online. In its development, this application uses the Dart programming language with the Flutter framework and uses APIs from the SIATMA, SIKMA, KRS, and UAJY Academic Guidance websites. (The application built is unofficial)",
     images: [scafSiatma, loginSiatma, homeSiatma, calSiatma, profSiama],
@@ -95,6 +97,7 @@ export const projects = [
   {
     title: "Atma Kitchen",
     platform: "Web & Mobile",
+    link: "https://github.com/apocalcrk/",
     description:
       "Atma Kitchen is a food ordering platform created for a coursework project, offering cakes, snacks, and beverages. Developed with Laravel for the backend and MySQL for data management, it ensures high performance. The web interface uses Next.js, while Flutter supports the mobile app, allowing cross-platform compatibility. Key features include user registration, login, ordering, and notifications, with ongoing enhancements based on user feedback.",
     images: [homeAtma, detailAtma, profAtma, dashboardAtma],
@@ -104,6 +107,7 @@ export const projects = [
   {
     title: "Padukuhan Ngasem",
     platform: "Web",
+    link: "https://github.com/apocalcrk/padukuhan-ngasem",
     description:
       "Developed as part of a Community Service Program (KKN), serves as a digital platform for the community, providing information, services, and announcements to the residents. Utilized the Next.js framework for building a dynamic and responsive web interface, ensuring smooth user interaction and an optimized browsing experience.Integrated Firebase for backend services, including real-time database management, authentication, and hosting, which enhanced the website's performance and scalability.",
     images: [homeKkn, umkmKkn, KontakKkn, adminKkn],
