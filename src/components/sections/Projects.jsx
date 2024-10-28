@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { FaArrowRight } from "react-icons/fa6";
-import { projects } from "../../utils/data.jsx";
+import { projects } from "../../utils/data";
 
 const Projects = () => {
   const projectRefs = useRef([]);

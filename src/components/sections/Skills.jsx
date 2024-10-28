@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { skills } from "../../utils/data.jsx";
+import { skills } from "../../utils/data";
 
 const SkillCard = ({ title, skills, icon: Icon }) => {
   return (

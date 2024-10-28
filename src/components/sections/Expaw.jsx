@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { FaArrowRight } from "react-icons/fa6";
-import { Experiences, Certificates } from "../../utils/data.jsx";
+import { Experiences, Certificates } from "../../utils/data";
 
 const Expaw = () => {
   const sectionRef = useRef(null);
