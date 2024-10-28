@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { FaCode, FaServer, FaPalette, FaTools } from "react-icons/fa";
+import { skills } from "../../utils/data.jsx";
 
 const SkillCard = ({ title, skills, icon: Icon }) => {
   return (
@@ -34,49 +34,6 @@ const SkillCard = ({ title, skills, icon: Icon }) => {
 
 const Skills = () => {
   const sectionRef = useRef(null);
-
-  const skillsData = {
-    frontend: {
-      title: "Programming Languages",
-      icon: FaCode,
-      skills: [
-        { name: "PHP", level: 95 },
-        { name: "Dart", level: 95 },
-        { name: "TypeScript", level: 85 },
-        { name: "Python", level: 80 },
-      ],
-    },
-    backend: {
-      title: "Frameworks & Libraries",
-      icon: FaServer,
-      skills: [
-        { name: "Laravel", level: 95 },
-        { name: "React.js/Next.js", level: 90 },
-        { name: "Flutter", level: 90 },
-        { name: "Django", level: 80 },
-      ],
-    },
-    design: {
-      title: "Design",
-      icon: FaPalette,
-      skills: [
-        { name: "UI/UX Design", level: 90 },
-        { name: "Figma/Adobe XD", level: 85 },
-        { name: "Design Systems", level: 88 },
-        { name: "Prototyping", level: 85 },
-      ],
-    },
-    tools: {
-      title: "Tools & Others",
-      icon: FaTools,
-      skills: [
-        { name: "Git/GitHub", level: 92 },
-        { name: "Docker/Kubernetes", level: 85 },
-        { name: "CI/CD", level: 85 },
-        { name: "Testing", level: 85 },
-      ],
-    },
-  };
 
   useEffect(() => {
     const progressBars = Array.from(document.querySelectorAll(".progress-bar"));
@@ -129,7 +86,7 @@ const Skills = () => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {Object.values(skillsData).map((category, index) => (
+        {Object.values(skills).map((category, index) => (
           <div key={index} className="skill-card">
             <SkillCard {...category} />
           </div>

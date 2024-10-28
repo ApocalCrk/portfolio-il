@@ -1,4 +1,5 @@
 import { UAJY, Mattcom, SMKHasanah } from "./icons";
+import { FaCode, FaServer, FaPalette, FaTools } from "react-icons/fa";
 
 // siatma
 import scafSiatma from "../assets/images/projects/siatma/1.jpg";
@@ -128,3 +129,46 @@ export const education = [
     description: "Currently pursuing a Bachelor's degree in Computer Science.",
   },
 ];
+
+export const skills = {
+  frontend: {
+    title: "Programming Languages",
+    icon: FaCode,
+    skills: [
+      { name: "PHP", level: 95 },
+      { name: "Dart", level: 95 },
+      { name: "TypeScript", level: 85 },
+      { name: "Python", level: 80 },
+    ],
+  },
+  backend: {
+    title: "Frameworks & Libraries",
+    icon: FaServer,
+    skills: [
+      { name: "Laravel", level: 95 },
+      { name: "React.js/Next.js", level: 90 },
+      { name: "Flutter", level: 90 },
+      { name: "Django", level: 80 },
+    ],
+  },
+  design: {
+    title: "Design",
+    icon: FaPalette,
+    skills: [
+      { name: "UI/UX Design", level: 90 },
+      { name: "Figma/Adobe XD", level: 85 },
+      { name: "Design Systems", level: 88 },
+      { name: "Prototyping", level: 85 },
+    ],
+  },
+  tools: {
+    title: "Tools & Others",
+    icon: FaTools,
+    skills: [
+      { name: "Git/GitHub", level: 92 },
+      { name: "Docker/Kubernetes", level: 85 },
+      { name: "CI/CD", level: 85 },
+      { name: "Testing", level: 85 },
+    ],
+  },
+};

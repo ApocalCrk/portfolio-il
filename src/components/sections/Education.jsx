@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { education } from "../../utils/data";
+import { education } from "../../utils/data.jsx";
 
 const Education = () => {
   const educationRef = useRef(null);
