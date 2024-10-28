@@ -111,7 +111,7 @@ export const projects = [
   }
 ];
 
-export const educationData = [
+export const education = [
   {
     school: "Vocational High School Hasanah Pekanbaru",
     degree: "Software Engineering",

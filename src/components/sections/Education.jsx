@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { educationData } from "../../utils/data";
+import { education } from "../../utils/data";
 
 const Education = () => {
   const educationRef = useRef(null);
@@ -45,7 +45,7 @@ const Education = () => {
         My academic background and qualifications
       </p>
       <div className="grid md:grid-cols-2 gap-8">
-        {educationData.map((edu, index) => (
+        {education.map((edu, index) => (
           <div
             key={index}
             className="experience-item group bg-gray-50 rounded-2xl p-6 hover:bg-slate-100 transition-all duration-300 cursor-pointer"
