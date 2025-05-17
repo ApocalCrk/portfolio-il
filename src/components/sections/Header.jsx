@@ -118,7 +118,7 @@ const Header = () => {
         <div className="flex items-center space-x-3">
           <div ref={locationRef} className="flex flex-col items-end">
             <span className="hidden md:inline text-sm text-gray-600">
-              Batam, Indonesia
+              Yogyakarta, Indonesia
             </span>
             <span className="hidden md:inline text-sm text-gray-600 font-bold">
               Hari Ini, {time}
