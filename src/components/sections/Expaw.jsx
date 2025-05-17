@@ -38,7 +38,7 @@ const Expaw = () => {
       <div className="grid md:grid-cols-2 gap-12 md:gap-24">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold mb-8">
-            Working Experiences
+            Working Experiences & Organizations
           </h2>
           <div className="space-y-8">
             {Experiences.map((data, index) => (

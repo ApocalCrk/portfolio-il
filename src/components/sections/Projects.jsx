@@ -58,9 +58,11 @@ const Projects = () => {
       <div className="flex flex-row md:flex-row justify-between items-start md:items-center mb-8">
         <div className="flex flex-col items-start">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-0">
-            Personal Projects
+            Projects
           </h2>
-          <p className="text-gray-600">A selection of my personal projects</p>
+          <p className="text-gray-600">
+            A showcase of my work, demonstrating my skills and creativity
+          </p>
         </div>
         <button
           className="border border-black px-2 md:px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors text-xs md:text-sm"
@@ -108,7 +110,7 @@ const Projects = () => {
   );
 };
 
-const ProjectItem = ({ project, isModal }) => (
+const ProjectItem = ({ project }) => (
   <div>
     <div className="flex justify-between items-start group cursor-pointer" onClick={() => window.open(project.link, "_blank")}>
       <div className="space-y-4">
@@ -123,26 +125,6 @@ const ProjectItem = ({ project, isModal }) => (
       </div>
       <FaArrowRight className="text-xl opacity-0 group-hover:opacity-100 transition-opacity" />
     </div>
-    {isModal && (
-      <div
-        className={`mt-8 grid ${
-          project.platform === "Mobile"
-            ? "grid-cols-3 md:grid-cols-5"
-            : "grid-cols-1 md:grid-cols-2"
-        } gap-4`}
-      >
-        {project.images.map((image, imgIndex) => (
-          <img
-            src={image}
-            alt="Project Image"
-            className={`w-100 ${
-              project.platform === "Mobile" ? "h-64" : "min-h-60"
-            } object-cover rounded-md border-gray-100 border-2`}
-            key={imgIndex}
-          />
-        ))}
-      </div>
-    )}
     <div className="mt-8 space-y-4">
       <h3 className="text-xl font-medium">Tech Stack & APIs</h3>
       <div className="flex flex-wrap gap-4">

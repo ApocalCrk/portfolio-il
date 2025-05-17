@@ -104,7 +104,7 @@ const Hero = () => {
                 <button
                   ref={(el) => (buttonsRef.current[0] = el)}
                   className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transform transition-transform duration-300 hover:scale-105"
-                  onClick={() => (window.location.href = "#footer")}
+                  onClick={() => (window.location.href = "mailto:ferdyfirmansyah3026@gmail.com")}
                 >
                   Talk to me
                 </button>

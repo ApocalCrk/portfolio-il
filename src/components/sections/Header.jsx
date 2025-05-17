@@ -157,7 +157,7 @@ const Header = () => {
       >
         <nav className="flex flex-col p-4 space-y-4">
           <div className="flex justify-between items-center border-b pb-4">
-            <span className="text-sm text-gray-600">Batam, Indonesia</span>
+            <span className="text-sm text-gray-600">Yogyakarta, Indonesia</span>
             <span className="text-sm text-gray-600 font-bold">
               Hari Ini, {time}
             </span>
