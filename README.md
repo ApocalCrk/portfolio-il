@@ -13,17 +13,18 @@ Check out the live version of my portfolio: [https://ferdy-il.vercel.app](https:
 │   ├── icon.png                 
 │   └── ...
 ├── src
-│   ├── mvtop
-│   │   ├── navigation.jsx
 │   ├── components
-│   │   ├── Header.jsx      
-│   │   ├── AboutMe.jsx      
-│   │   ├── Projects.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Expaw.jsx
-│   │   ├── Education.jsx
-│   │   ├── Hero.jsx             
+|   |   ├── mvtop
+│   │   |   ├── navigation.jsx
+|   |   ├── sections
+│   │   |   ├── Header.jsx      
+│   │   |   ├── AboutMe.jsx      
+│   │   |   ├── Projects.jsx
+│   │   |   ├── Skills.jsx
+│   │   |   ├── Footer.jsx
+│   │   |   ├── Expaw.jsx
+│   │   |   ├── Education.jsx
+│   │   |   ├── Hero.jsx             
 │   ├── styles
 │   │   └── global.css            
 │   ├── App.jsx                 
