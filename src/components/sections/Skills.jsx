@@ -82,7 +82,7 @@ const Skills = () => {
             Comprehensive overview of my technical capabilities
           </p>
         </div>
-        <div className="mt-4 md:mt-0 text-sm text-gray-500">Updated 2024</div>
+        <div className="mt-4 md:mt-0 text-sm text-gray-500">Updated { new Date().getFullYear() }</div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
