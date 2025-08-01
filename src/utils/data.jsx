@@ -119,7 +119,7 @@ export const projects = [
   {
     title: "AI-Based Crop Recommender with Weather Prediction and Soil Prediction Using GIS",
     platform: "Web",
-    link: "mahitala-re.vercel.app",
+    link: "https://mahitala-re.vercel.app",
     description:
       "AI-Based Crop Recommender with Weather Prediction and Soil Prediction Using GIS is a web application that provides crop recommendations based on weather and soil data. The application uses machine learning algorithms to predict the best crops to plant based on the user's location and soil conditions.",
     images: [],
@@ -222,7 +222,7 @@ export const education = [
   {
     school: "Atma Jaya University Yogyakarta",
     degree: "Bachelor of Computer Science",
-    period: "2021 - Present",
+    period: "2021 - 2025",
     logo: <UAJY />,
     description: "Currently pursuing a Bachelor's degree in Computer Science.",
   },
