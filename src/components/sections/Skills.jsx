@@ -1,30 +1,26 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { skills } from "../../utils/data";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SkillCard = ({ title, skills, icon: Icon }) => {
   return (
-    <div className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-all duration-300 skill-card">
-      <div className="flex items-center space-x-3 mb-6">
-        <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center">
-          <Icon className="text-gray-800 text-xl" />
+    <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover border border-gray-200 dark:border-gray-800 skill-card">
+      <div className="flex items-center space-x-4 mb-8">
+        <div className="w-12 h-12 bg-black dark:bg-white rounded-xl flex items-center justify-center">
+          <Icon className="text-white dark:text-black text-xl" />
         </div>
-        <h3 className="text-xl font-semibold">{title}</h3>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
       </div>
-      <div className="space-y-4">
+      <div className="grid grid-cols-2 gap-3">
         {skills.map((skill, index) => (
-          <div key={index} className="relative">
-            <div className="flex justify-between mb-1">
-              <span className="text-sm font-medium">{skill.name}</span>
-              <span className="text-sm text-gray-500">{skill.level}%</span>
-            </div>
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gray-500 rounded-full progress-bar"
-                style={{ width: 0 }}
-                data-width={`${skill.level}%`}
-              />
-            </div>
+          <div 
+            key={index} 
+            className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+          >
+            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{skill.name}</span>
           </div>
         ))}
       </div>
@@ -36,58 +32,46 @@ const Skills = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const progressBars = Array.from(document.querySelectorAll(".progress-bar"));
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".skill-card",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top center+=100",
+          },
+        }
+      );
+    }, sectionRef);
 
-    gsap.fromTo(
-      sectionRef.current,
-      {
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center+=100",
-        },
-      }
-    );
-
-    progressBars.forEach((bar) => {
-      gsap.to(bar, {
-        width: bar.dataset.width,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: bar,
-          start: "top bottom-=50",
-        },
-      });
-    });
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="px-4 md:px-8 py-12 md:py-20 max-w-7xl mx-auto border-t border-gray-100"
+      className="px-4 md:px-8 py-16 md:py-24 max-w-7xl mx-auto"
       id="skills"
     >
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold">Skills & Expertise</h2>
-          <p className="text-gray-600 mt-2">
-            Comprehensive overview of my technical capabilities
-          </p>
+      <div className="text-center mb-16">
+        <h2 className="section-heading">Skills & Expertise</h2>
+        <p className="section-subheading max-w-2xl mx-auto">
+          A comprehensive overview of my technical capabilities and areas of expertise
+        </p>
+        <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 font-mono">
+          Last updated {new Date().getFullYear()}
         </div>
-        <div className="mt-4 md:mt-0 text-sm text-gray-500">Updated { new Date().getFullYear() }</div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         {Object.values(skills).map((category, index) => (
-          <div key={index} className="skill-card">
+          <div key={index}>
             <SkillCard {...category} />
           </div>
         ))}

@@ -4,7 +4,7 @@ import mattcomImage from "../assets/images/mattcom.jpeg";
 import hackerrankImage from "../assets/images/hackerrank.jpeg";
 import garudaImage from "../assets/images/garuda.jpeg";
 import baktiImage from "../assets/images/bakti.jpeg";
-import smkHasanah from "../assets/images/smk.jpg";
+import smkHasanah from "../assets/images/smk.png";
 import infiniteLearningImage from "../assets/images/infinite-learning.png";
 import himaforkaImage from "../assets/images/himaforka.png";
 

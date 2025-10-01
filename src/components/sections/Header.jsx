@@ -1,197 +1,147 @@
 import React, { useEffect, useState, useRef } from "react";
-import moment from "moment-timezone";
 import { gsap } from "gsap";
+import { Search, Play, Sun, Moon, Menu, X } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+import TypingGame from "../game/TypingGame";
 
 const Header = () => {
-  const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showGameHint, setShowGameHint] = useState(false);
+  const [isGameOpen, setIsGameOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const headerRef = useRef(null);
-  const navRef = useRef(null);
-  const locationRef = useRef(null);
-  const buttonRef = useRef(null);
-  const mobileMenuRef = useRef(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(moment().tz("Asia/Jakarta").format("HH:mm:ss"));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     gsap.fromTo(
       headerRef.current,
       { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
     );
-    gsap.fromTo(
-      navRef.current,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.2 }
-    );
-    gsap.fromTo(
-      locationRef.current,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.4 }
-    );
-    gsap.fromTo(
-      buttonRef.current,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.6 }
-    );
+
+    // Show game hint after 3 seconds
+    const hintTimer = setTimeout(() => {
+      setShowGameHint(true);
+      setTimeout(() => setShowGameHint(false), 5000);
+    }, 3000);
+
+    return () => clearTimeout(hintTimer);
   }, []);
 
-  useEffect(() => {
-    if (mobileMenuRef.current) {
-      if (isMenuOpen) {
-        gsap.fromTo(
-          mobileMenuRef.current,
-          { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
-        );
-      } else {
-        gsap.to(mobileMenuRef.current, {
-          opacity: 0,
-          y: -20,
-          duration: 0.3,
-          ease: "power2.in",
-        });
-      }
-    }
-  }, [isMenuOpen]);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#expaw' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
     <>
       <header
         ref={headerRef}
-        className="relative bg-white bg-opacity-80 backdrop-blur-md px-4 md:px-8 py-4 md:py-6 max-w-7xl mx-auto flex justify-between items-center rounded-md"
-        id="header"
+        className="fixed top-0 left-0 right-0 z-40 glass-effect border-b border-gray-200 dark:border-gray-800"
       >
-        <div className="flex items-center">
-          <button
-            ref={navRef}
-            className="flex md:hidden items-center border border-black px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors"
-          >
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
-            <p>Available for hire</p>
-          </button>
-          <nav ref={navRef} className="hidden md:flex space-x-6 items-center">
-            <button className="flex items-center border border-black px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
-              <p>Available for hire</p>
-            </button>
-            <a
-              href="#expaw"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              Experiences & Certifications
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#education"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              Educations
-            </a>
-            <a
-              href="#skills"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              Skills
-            </a>
-          </nav>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div ref={locationRef} className="flex flex-col items-end">
-            <span className="hidden md:inline text-sm text-gray-600">
-              Yogyakarta, Indonesia
-            </span>
-            <span className="hidden md:inline text-sm text-gray-600 font-bold">
-              Hari Ini, {time}
-            </span>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+          <div className="flex justify-between items-center">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+
+            {/* Actions */}
+            <div className="flex items-center space-x-3">
+              {/* Command Palette Hint */}
+              <div className="hidden md:block relative">
+                <button
+                  className="flex items-center space-x-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
+                  onClick={() => {
+                    const event = new KeyboardEvent('keydown', { key: '/' });
+                    window.dispatchEvent(event);
+                  }}
+                >
+                  <Search className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>Search</span>
+                  <kbd className="px-2 py-0.5 text-xs font-mono bg-white dark:bg-gray-900 rounded border border-gray-300 dark:border-gray-600">
+                    /
+                  </kbd>
+                </button>
+              </div>
+
+              {/* Game Easter Egg */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsGameOpen(true)}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 group"
+                  title="Play typing game"
+                >
+                  <Play className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-transform" />
+                </button>
+                {showGameHint && (
+                  <div className="absolute top-full right-0 mt-2 px-3 py-2 bg-black dark:bg-white text-white dark:text-black text-xs rounded-lg whitespace-nowrap animate-bounce">
+                    Try the typing game!
+                  </div>
+                )}
+              </div>
+
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 group"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 group-hover:scale-110 group-hover:-rotate-12 transition-transform" />
+                ) : (
+                  <Sun className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-transform" />
+                )}
+              </button>
+
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 group"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
+                ) : (
+                  <Menu className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                )}
+              </button>
+            </div>
           </div>
-          <button
-            className="md:hidden"
-            ref={buttonRef}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={
-                  isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"
-                }
-              />
-            </svg>
-          </button>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <nav className="md:hidden pt-4 pb-2 space-y-2 animate-slide-down">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+          )}
         </div>
       </header>
 
-      <div
-        ref={mobileMenuRef}
-        className={`md:hidden fixed left-4 right-4 top-24 bg-white rounded-lg shadow-lg transform transition-opacity duration-300 z-50 ${
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <nav className="flex flex-col p-4 space-y-4">
-          <div className="flex justify-between items-center border-b pb-4">
-            <span className="text-sm text-gray-600">Yogyakarta, Indonesia</span>
-            <span className="text-sm text-gray-600 font-bold">
-              Hari Ini, {time}
-            </span>
-          </div>
-          <a
-            href="#expaw"
-            onClick={closeMenu}
-            className="text-gray-600 hover:text-black transition-colors py-2"
-          >
-            Experiences & Certifications
-          </a>
-          <a
-            href="#projects"
-            onClick={closeMenu}
-            className="text-gray-600 hover:text-black transition-colors py-2"
-          >
-            Projects
-          </a>
-          <a
-            href="#education"
-            onClick={closeMenu}
-            className="text-gray-600 hover:text-black transition-colors py-2"
-          >
-            Educations
-          </a>
-          <a
-            href="#skills"
-            onClick={closeMenu}
-            className="text-gray-600 hover:text-black transition-colors py-2"
-          >
-            Skills
-          </a>
-        </nav>
-      </div>
+      {/* Spacer for fixed header */}
+      <div className="h-16"></div>
+
+      {/* Typing Game Modal */}
+      {isGameOpen && <TypingGame onClose={() => setIsGameOpen(false)} />}
     </>
   );
 };

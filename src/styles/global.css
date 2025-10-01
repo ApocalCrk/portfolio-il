@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -10,27 +10,68 @@
 
 body {
   @apply antialiased;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
+  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #292929;
+  @apply bg-gray-100 dark:bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3d3d3d;
-  border-radius: 10px;
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  @apply bg-gray-500 dark:bg-gray-500;
 }
 
 .modal-custom {
-  scrollbar-color: #ececec #ffffff;
+  scrollbar-color: #9ca3af #1f2937;
   scrollbar-width: thin;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    @apply bg-white/80 dark:bg-gray-900/80;
+  }
+  
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    @apply shadow-large;
+  }
+  
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4;
+  }
+  
+  .section-subheading {
+    @apply text-lg md:text-xl text-gray-600 dark:text-gray-400;
+  }
+}
+
+/* Selection */
+::selection {
+  @apply bg-black text-white;
+}
+
+/* Focus visible */
+:focus-visible {
+  @apply outline-none ring-2 ring-black ring-offset-2 dark:ring-white dark:ring-offset-gray-900;
 }

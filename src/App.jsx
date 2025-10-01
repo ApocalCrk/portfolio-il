@@ -1,48 +1,63 @@
 import React from 'react';
-
-// GSAP
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Context
+import { ThemeProvider } from './context/ThemeContext';
 
 // Components
 import Header from './components/sections/Header';
 import Hero from './components/sections/Hero';
-import Expaw from './components/sections/Expaw';
+import About from './components/sections/About';
 import Projects from './components/sections/Projects';
+import Expaw from './components/sections/Expaw';
 import Education from './components/sections/Education';
-import Skills from './components/sections/Skills';
-// import AboutMe from './components/AboutMe';
+import TechnicalSkills from './components/sections/TechnicalSkills';
+import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
+import CommandPalette from './components/navigation/CommandPalette';
 import MoveToTop from './components/mvtop/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <Header />
+    <ThemeProvider>
+      <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        {/* Header */}
+        <Header />
 
-      {/* Hero Section */}
-      <Hero />
+        {/* Hero Section */}
+        <Hero />
 
-      {/* Licenses & Certifications Section */}
-      <Expaw />
+        {/* About Section */}
+        <About />
 
-      {/* Projects Section */}
-      <Projects />
+        {/* Projects Section */}
+        <Projects />
 
-      {/* Education Section */}
-      <Education />
+        {/* Experience & Certifications Section */}
+        <Expaw />
 
-      {/* Skills Section */}
-      <Skills />
+        {/* Education Section */}
+        <Education />
 
-      {/* Footer */}
-      <Footer />
+        {/* Technical Skills Section */}
+        <TechnicalSkills />
 
-      <MoveToTop />
-    </div>
+        {/* Contact Section */}
+        <Contact />
+
+        {/* Footer */}
+        <Footer />
+
+        {/* Command Palette */}
+        <CommandPalette />
+
+        {/* Move to Top Button */}
+        <MoveToTop />
+      </div>
+    </ThemeProvider>
   );
 };
 

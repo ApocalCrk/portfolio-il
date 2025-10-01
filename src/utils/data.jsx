@@ -66,7 +66,7 @@ export const Experiences = [
 
 export const Certificates = [
   {
-    title: "National Mobile & Website Development Competition",
+    title: "Mobile & Website Development Competition",
     proficency: "Runner Up",
     company: "Infinite Learning Indonesia",
     skills: "Web Development, Mobile Development, Problem Solving",
