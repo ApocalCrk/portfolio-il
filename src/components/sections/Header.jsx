@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { Search, Play, Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import TypingGame from "../game/TypingGame";
+import SnakeGame from "../game/SnakeGame";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +11,8 @@ const Header = () => {
   const [isGameOpen, setIsGameOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const headerRef = useRef(null);
+
+  const isMobile = () => window.innerWidth <= 768;
 
   useEffect(() => {
     gsap.fromTo(
@@ -43,6 +46,11 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex justify-between items-center">
+            {/* Logo/Brand - only show on mobile */}
+            <div className="md:hidden">
+              <span className="text-lg font-bold text-gray-900 dark:text-white">FF</span>
+            </div>
+
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
@@ -80,13 +88,13 @@ const Header = () => {
                 <button
                   onClick={() => setIsGameOpen(true)}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 group"
-                  title="Play typing game"
+                  title={isMobile() ? "Play snake game" : "Play typing game"}
                 >
                   <Play className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-transform" />
                 </button>
                 {showGameHint && (
                   <div className="absolute top-full right-0 mt-2 px-3 py-2 bg-black dark:bg-white text-white dark:text-black text-xs rounded-lg whitespace-nowrap animate-bounce">
-                    Try the typing game!
+                    {isMobile() ? "Try the snake game!" : "Try the typing game!"}
                   </div>
                 )}
               </div>
@@ -122,16 +130,18 @@ const Header = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <nav className="md:hidden pt-4 pb-2 space-y-2 animate-slide-down">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              <div className="flex flex-col items-end space-y-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-right min-w-[120px]"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
             </nav>
           )}
         </div>
@@ -140,8 +150,12 @@ const Header = () => {
       {/* Spacer for fixed header */}
       <div className="h-16"></div>
 
-      {/* Typing Game Modal */}
-      {isGameOpen && <TypingGame onClose={() => setIsGameOpen(false)} />}
+      {/* Game Modal */}
+      {isGameOpen && (
+        isMobile() 
+          ? <SnakeGame onClose={() => setIsGameOpen(false)} />
+          : <TypingGame onClose={() => setIsGameOpen(false)} />
+      )}
     </>
   );
 };

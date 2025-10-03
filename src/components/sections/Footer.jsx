@@ -96,7 +96,6 @@ const Footer = () => {
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <p>© {currentYear} Ferdy Firmansyah. All rights reserved.</p>
-            <p>Designed & Built with React, Tailwind CSS, and GSAP</p>
           </div>
         </div>
       </div>
