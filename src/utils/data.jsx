@@ -1,25 +1,6 @@
 import { UAJY, Mattcom, SMKHasanah, InfiniteLearning, Himaforka } from "./icons";
 
-import { FaCode, FaServer, FaPalette, FaTools } from "react-icons/fa";
-
-// siatma
-import scafSiatma from "../assets/images/projects/siatma/1.jpg";
-import loginSiatma from "../assets/images/projects/siatma/2.jpg";
-import calSiatma from "../assets/images/projects/siatma/3.jpg";
-import homeSiatma from "../assets/images/projects/siatma/4.jpg";
-import profSiama from "../assets/images/projects/siatma/5.jpg";
-
-// kkn
-import homeKkn from "../assets/images/projects/kkn/1.png";
-import umkmKkn from "../assets/images/projects/kkn/3.png";
-import KontakKkn from "../assets/images/projects/kkn/4.png";
-import adminKkn from "../assets/images/projects/kkn/5.png";
-
-// atma kitchen
-import homeAtma from "../assets/images/projects/atmak/1.png";
-import detailAtma from "../assets/images/projects/atmak/2.png";
-import profAtma from "../assets/images/projects/atmak/3.png";
-import dashboardAtma from "../assets/images/projects/atmak/4.png";
+import { FaCode, FaServer, FaTable, FaTools } from "react-icons/fa";
 
 export const Experiences = [
   {
@@ -117,9 +98,19 @@ export const Certificates = [
 
 export const projects = [
   {
-    title: "AI-Based Crop Recommender with Weather Prediction and Soil Prediction Using GIS",
+    title: "CipherFi",
+    platform: "Web & Mobile",
+    link: "https://github.com/ApocalCrk/cipherfi",
+    description:
+      "A comprehensive financial news aggregation and portfolio management platform built as a FastAPI backend service. It serves as the core engine for collecting, processing, and delivering financial information to support informed investment decisions. Features include RSS feed scraping from 20+ sources, AI-powered summarization, multi-asset portfolio tracking, real-time P&L calculations, and intelligent alert systems.",
+    images: [],
+    techStack: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Redis", "APScheduler", "Firebase Admin SDK", "FCM", "SMTP", "Custom LLM API"],
+    apis: ["YFinance", "Custom LLM", "Firebase", "SMTP", "RSS Feeds"],
+  },
+  {
+    title: "Mahitala",
     platform: "Web",
-    link: "https://mahitala-re.vercel.app",
+    link: "https://mahitala.sudolabs.cloud/",
     description:
       "AI-Based Crop Recommender with Weather Prediction and Soil Prediction Using GIS is a web application that provides crop recommendations based on weather and soil data. The application uses machine learning algorithms to predict the best crops to plant based on the user's location and soil conditions.",
     images: [],
@@ -139,7 +130,7 @@ export const projects = [
   {
     title: "Kuta Village",
     platform: "Web",
-    link: "kutavillage.com",
+    link: "https://kutavillage.com",
     description:
       "Kuta Village is a web application that serves as a digital platform for the Kuta Village community, providing information, services, and announcements to the residents.",
     images: [],
@@ -149,21 +140,11 @@ export const projects = [
   {
     title: "Padukuhan Ngasem",
     platform: "Web",
-    link: "https://github.com/apocalcrk/padukuhan-ngasem",
+    link: "https://ngasem.sudolabs.cloud/",
     description:
       "Developed as part of a Community Service Program (KKN), serves as a digital platform for the community, providing information, services, and announcements to the residents. Utilized the Next.js framework for building a dynamic and responsive web interface, ensuring smooth user interaction and an optimized browsing experience.Integrated Firebase for backend services, including real-time database management, authentication, and hosting, which enhanced the website's performance and scalability.",
     images: [],
     techStack: ["Next.js", "Firebase", "Tailwind CSS"],
-    apis: [],
-  },
-  {
-    title: "Atma Kitchen",
-    platform: "Web & Mobile",
-    link: "https://github.com/apocalcrk/",
-    description:
-      "Atma Kitchen is a food ordering platform created for a coursework project, offering cakes, snacks, and beverages. Developed with Laravel for the backend and MySQL for data management, it ensures high performance. The web interface uses Next.js, while Flutter supports the mobile app, allowing cross-platform compatibility. Key features include user registration, login, ordering, and notifications, with ongoing enhancements based on user feedback.",
-    images: [],
-    techStack: ["React.js", "Laravel", "Flutter", "MySQL"],
     apis: [],
   },
   {
@@ -177,31 +158,11 @@ export const projects = [
     apis: [],
   },
   {
-    title: "E Perlib",
+    title: "Informatics Festival",
     platform: "Web",
-    link: "github.com/apocalcrk/eperlib",
-    description:
-      "E Perlib is a web application designed for library management, developed as part of a coursework project. It includes features such as book management, member management, and borrowing/returning books. The application is built using the Laravel framework and MySQL database.",
-    images: [],
-    techStack: ["Laravel", "Tailwind CSS", "Bootstrap", "MySQL"],
-    apis: ["UAJY Academic Guidance API"],
-  },
-  {
-    title: "Informatics Festival #11",
-    platform: "Web",
-    link: "github.com/HIMAFORKA-UAJY/ifest-dash",
+    link: "https://ifest.sudolabs.cloud/",
     description:
       "Maintaining and updating the registration logic of the event dashboard from the previous Infomatics Festival #10. The Informatics Festival is an annual event organized by the Informatics Engineering Study Program at Atma Jaya University Yogyakarta. The event includes various competitions, workshops, and seminars in the field of informatics.",
-    images: [],
-    techStack: ["Laravel", "Bootstrap", "MySQL"],
-    apis: []
-  },
-  {
-    title: "Informatics Festivatal #10",
-    platform: "Web",
-    link: "github.com/HIMAFORKA-UAJY/ifest-dash",
-    description:
-      "Informatics Festival is an annual event organized by the Informatics Engineering Study Program at Atma Jaya University Yogyakarta. The event includes various competitions, workshops, and seminars in the field of informatics. I was responsible for developing the website for the event, which included features such as registration, schedule, and information about the event.",
     images: [],
     techStack: ["Laravel", "Bootstrap", "MySQL"],
     apis: []
@@ -248,40 +209,41 @@ export const skills = {
     title: "Programming Languages",
     icon: FaCode,
     skills: [
-      { name: "PHP", level: 95 },
-      { name: "Dart", level: 95 },
-      { name: "TypeScript", level: 85 },
-      { name: "Python", level: 80 },
+      { name: "PHP"},
+      { name: "Dart"},
+      { name: "TypeScript"},
+      { name: "Python"},
     ],
   },
   backend: {
     title: "Frameworks & Libraries",
     icon: FaServer,
     skills: [
-      { name: "Laravel", level: 95 },
-      { name: "React.js/Next.js", level: 90 },
-      { name: "Flutter", level: 90 },
-      { name: "Django", level: 80 },
+      { name: "Laravel"},
+      { name: "React.js/Next.js"},
+      { name: "Flutter"},
+      { name: "Django"},
     ],
   },
   design: {
-    title: "Design",
-    icon: FaPalette,
+    title: "Database",
+    icon: FaTable,
     skills: [
-      { name: "UI/UX Design", level: 90 },
-      { name: "Figma/Adobe XD", level: 85 },
-      { name: "Design Systems", level: 88 },
-      { name: "Prototyping", level: 85 },
+      { name: "MySQL"},
+      { name: "PostgreSQL"},
+      { name: "SQLite"},
+      { name: "Firebase Firestore"},
+      { name: "MongoDB"}
     ],
   },
   tools: {
     title: "Tools & Others",
     icon: FaTools,
     skills: [
-      { name: "Git/GitHub", level: 92 },
-      { name: "Docker/Kubernetes", level: 85 },
-      { name: "CI/CD", level: 85 },
-      { name: "Testing", level: 85 },
+      { name: "Git/GitHub"},
+      { name: "Docker/Kubernetes"},
+      { name: "CI/CD"},
+      { name: "Testing"},
     ],
   },
 };

@@ -54,7 +54,7 @@ const Expaw = () => {
                 <path d="M6 10h2v2H6zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H6zm4 0h2v2h-2z"/>
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Work Experience</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Work & Organization Experience</h3>
           </div>
           
           <div className="space-y-6">

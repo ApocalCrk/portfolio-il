@@ -7,7 +7,16 @@ const wordsList = [
   'responsive', 'dynamic', 'performance', 'optimization', 'debugging', 
   'architecture', 'component', 'function', 'variable', 'constant', 'interface',
   'design', 'code', 'build', 'deploy', 'test', 'debug', 'refactor', 'commit',
-  'merge', 'branch', 'clone', 'push', 'pull', 'fetch', 'reset', 'rebase'
+  'merge', 'branch', 'clone', 'push', 'pull', 'fetch', 'reset', 'rebase',
+  'frontend', 'backend', 'fullstack', 'graphql', 'redux', 'jest', 'webpack', 'vite',
+  'docker', 'kubernetes', 'microservices', 'authentication', 'authorization', 'oauth',
+  'jwt', 'rest', 'api', 'json', 'html', 'css', 'sass', 'tailwind', 'bootstrap',
+  'materialui', 'accessibility', 'ux', 'ui', 'seo', 'analytics', 'logging', 'monitoring',
+  'sentry', 'prometheus', 'testing', 'unittest', 'integration', 'e2e', 'storybook',
+  'cli', 'terminal', 'shell', 'bash', 'zsh', 'sql', 'nosql', 'mongodb', 'postgresql', 'mysql',
+  'concurrency', 'asynchronous', 'promise', 'callback', 'eventloop', 'performance', 'latency',
+  'throughput', 'scalability', 'cache', 'redis', 'memcached', 'encryption', 'hashing', 'token',
+  'pipeline', 'orchestration', 'automation', 'observability'
 ];
 
 const generateWords = (count) => {
